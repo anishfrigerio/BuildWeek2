@@ -1,5 +1,4 @@
-var emailArray = [];
-var passwordArray = [];
+
 var email = [];
 var elenco = [];
 var carrello = [];
@@ -60,11 +59,6 @@ register.addEventListener('click', (e) => {
         error2.innerHTML = 'Password non è corretta. Riprovare';
         setTimeout(function(){location.href="registrati.html"} , 1000);
         return;
-    }
-    else if (emailArray.indexOf(email) == -1) {
-        emailArray.push(email);
-        passwordArray.push(password);
-        
     }
     printData();
     let t = false;
