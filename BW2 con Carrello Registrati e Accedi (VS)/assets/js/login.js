@@ -3,7 +3,7 @@ var elenco = [];
 let cart = [];
 var carrello = [];
 var login = document.getElementById('login');
-var stato;
+var userStorage = localStorage.getItem('user');
 class Utente {
     constructor(_email, _password, _carrello, _id) {
         this.email = _email;
@@ -26,7 +26,7 @@ function init() {
 // FUNZIONE PER CAMBIARE LE SCRITTE ACCEDI E REGISTRATI
 // FUNZIONE LOGOUT PER AGGIORNARE IL CARRELLO DELL'UTENTE NEL JSON
 function welcome() {
-    if (stato) {
+    if (userStorage) {
         let loggedUser = localStorage.getItem('user');
         loggedUser = JSON.parse(loggedUser);
         let acc = document.getElementById('log');
@@ -70,7 +70,7 @@ if (document.getElementById('login')) {
         } else {
             for (let i = 0; i < elenco.length; i++) {
                 if (email == elenco[i].email && password == elenco[i].password) {
-                   stato = true;
+                let stato = true;
                 updateCart(i);
                 let nuovoUtente = new Utente(email, password, elenco[i].carrello, i + 1);
                 document.getElementById("email").value = "";
@@ -150,7 +150,6 @@ function modifyUser(products, utente, e) {
         }
     }).then(response => {
         if (response.ok) {
-            stato = false;
             return response.json();
         }
         throw new Error('Request failed');
