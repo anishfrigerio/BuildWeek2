@@ -97,8 +97,6 @@ register.addEventListener('click', (e) => {
     }
 });
 
-const signup = document.querySelector(".signup");
-const termCond = document.querySelector("#accept");
 const password = document.querySelector("#password");
 const confirmPassword = document.querySelector("#confirmPassword");
 const pwd_format = document.querySelector(".pwd-format");
@@ -146,7 +144,7 @@ confirmPassword.addEventListener('focusout', () => {
 
 
 async function addData(data) {
-    let response = await fetch('http://localhost:3000/users', {
+    await fetch('http://localhost:3000/users', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json;charset=utf-8',
