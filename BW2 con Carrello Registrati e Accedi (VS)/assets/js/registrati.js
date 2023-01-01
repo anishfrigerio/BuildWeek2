@@ -74,8 +74,6 @@ register.addEventListener('click', (e) => {
         for(let i = 0 ; i<elenco.length;i++){
             if (email==elenco[i].email){
                 t = false;
-            } else{
-                t= true;
             }
         }
     }
